@@ -5,6 +5,7 @@ const url = require('url');
 const homehot = require('./data/home/hotdata');
 
 router.get(config.homehot1, (req, res)=>{
+   console.log(req.query, "lll")
    res.json(homehot.hot1);
 });
 router.get(config.homehot2, (req,res)=>{
