@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import './style.less';
 import Header from '../../../components/common/Header';
-
+import { Link } from 'react-router-dom';
 class HomeHeader extends Component{
+  
     render(){
         const left = (
-            <div className="home-header-left">
-                 <span>北京</span>
+            <div className="home-header-left" onClick={this.hanldeCityClick}>
+                 <Link to="/city"><span>{this.props.city.cityName}</span></Link>
                  <i className="icon-angle-down"></i>
             </div>
         );
@@ -29,5 +30,6 @@ class HomeHeader extends Component{
         )
     }
 }
+
 
 export default HomeHeader;

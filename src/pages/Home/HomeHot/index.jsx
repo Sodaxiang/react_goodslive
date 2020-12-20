@@ -1,8 +1,9 @@
 import React from "react"
 import {getHomeHot1, getHomeHot2} from '../../../network/home';
 import HomeHotView from "./HomeHotView"
+import {connect} from 'react-redux';
 
-export default class HomeHot extends React.Component {
+ class HomeHot extends React.Component {
 
     constructor(){
         super();
@@ -13,14 +14,16 @@ export default class HomeHot extends React.Component {
     }
 
     componentDidMount() {
-        getHomeHot1().then(
+        const city = this.props.city.cityName || localStorage.getItem('city') || '广州';
+        console.log(this.props)
+        getHomeHot1(city).then(
             data=>{
                 this.setState({
                     homehot1:data
                 })
             }
         )
-        getHomeHot2().then(
+        getHomeHot2(city).then(
             data=>{
                 this.setState({
                     homehot2:data
@@ -50,3 +53,10 @@ export default class HomeHot extends React.Component {
         )
     }
 }
+
+const mapStateToProps = state =>{
+    return {
+        city: state.city,
+    }
+}
+export default connect(mapStateToProps)(HomeHot);

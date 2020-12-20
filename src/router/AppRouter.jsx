@@ -6,6 +6,8 @@ import Home from '../pages/Home';
 import Mall from '../pages/Mall';
 import Service from '../pages/Service';
 import Profile from '../pages/Profile';
+import City from '../pages/City';
+
 import NotFound from '../pages/NotFound';
 
 export default class AppRouter extends React.Component{
@@ -17,6 +19,7 @@ export default class AppRouter extends React.Component{
                   <Route  path="/mall" component={Mall}/>
                   <Route  path="/service" component={Service}/>
                   <Route  path="/profile" component={Profile}/>
+                  <Route  path="/city" component={City} />
                   <Route path="*" component={NotFound}/>
               </Switch>
             </BrowserRouter>
