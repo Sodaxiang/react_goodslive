@@ -5,7 +5,6 @@ import CityHeader from './CityHeader';
 import CityCurrent from './CityCurrent';
 import CityHot from './CityHot';
 class City extends Component {
-    
     render(){
         return(
             <div>

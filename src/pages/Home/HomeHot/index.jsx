@@ -15,7 +15,6 @@ import {connect} from 'react-redux';
 
     componentDidMount() {
         const city = this.props.city.cityName || localStorage.getItem('city') || '广州';
-        console.log(this.props)
         getHomeHot1(city).then(
             data=>{
                 this.setState({

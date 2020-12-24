@@ -1,17 +1,25 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {updateCity} from '../../../actions/city';
 import "./style.less"
 
-export default class HotCity extends React.Component {
+class HotCity extends React.Component {
 
-    clickHandler(cityName) {
-        this.props.cityNameHandler(cityName);
+    clickHandler=(e)=> {
+        if(e.target.nodeName.toUpperCase() === 'SPAN'){
+            const city = e.target.innerText;
+            this.props.updateCity({cityName:city});
+            localStorage.setItem('city', city);
+            window.history.back(-1);
+
+        }
     }
 
     render() {
         return (
             <div className="city-list-container">
                 <h3>热门城市</h3>
-                <ul className="clear-fix">
+                <ul className="clear-fix" onClick={(e)=>this.clickHandler(e)} >
                     <li>
                         <span>北京</span>
                     </li>
@@ -53,3 +61,5 @@ export default class HotCity extends React.Component {
         )
     }
 }
+
+export default connect(null,{updateCity})(HotCity);
