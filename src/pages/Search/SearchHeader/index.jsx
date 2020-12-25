@@ -1,56 +1,52 @@
 import React, { Component } from 'react';
 import './style.less';
 import Header from '../../../components/common/Header';
-import { Link } from 'react-router-dom';
-class HomeHeader extends Component{
+
+class SearchHeader extends Component{
     constructor(props){
         super(props);
         this.state = {
-            searchContent: ''
+            //将其初始化为首页输入的首页内容
+            searchContent: props.searchContent
         }
+    }
+    clickBackHandler = ()=>{
+        this.props.history.replace('/');
     }
     handleInput = (e) =>{
         this.setState({
             searchContent: e.target.value
         })
     }
-    searchHandler = e =>{
+    handleSearch = e =>{
         if(e.keyCode === 13){
             this.props.history.push(`/search/${this.state.searchContent}`)
+            this.props.handleSearch(this.state.searchContent);
         }
     }
-
     render(){
+    
         const left = (
-            <div className="home-header-left" onClick={this.hanldeCityClick}>
-                 <Link to="/city"><span>{this.props.city.cityName}</span></Link>
-                 <i className="icon-angle-down"></i>
-            </div>
+                <span className="back-icon" onClick={ this.clickBackHandler }>
+                    <i className="icon-chevron-left"></i>
+                </span>
         );
         const middle = (
-            <div className="home-header-middle">
                <div className="search-container">
                    <input 
                        type="text" 
                        value={this.state.searchContent} 
                        placeholder="搜索您想住的区域或小区" 
                        onInput={this.handleInput}
-                       onKeyUp={this.searchHandler}/>
+                       onKeyUp={this.handleSearch}/>
                    <i className="icon-search"></i>
                </div>
-            </div>
         );
-        const right = (
-            <div className="home-header-right">
-                 <i className="iconfont icon-car"></i>
-            </div>
-           
-        )
         return(       
-            <Header left={left} middle={middle} right={right}/>     
+            <Header left={left} middle={middle}/>     
         )
     }
 }
 
 
-export default HomeHeader;
+export default SearchHeader;

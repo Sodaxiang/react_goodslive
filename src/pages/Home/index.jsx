@@ -16,7 +16,7 @@ class Home extends React.Component{
     render(){
         return(
             <div>
-                <HomeHeader city={this.props.city}/>
+                <HomeHeader city={this.props.city} history={this.props.history}/>
                 <Swiper banners={[banner1,banner2,banner3]}/>
                 <HomeHot />
                 <FootNav/>
