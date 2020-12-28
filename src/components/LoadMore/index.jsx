@@ -11,16 +11,14 @@ export default class LoadMore extends Component {
     componentDidMount() {
         const winH = document.documentElement.clientHeight;
         const scrollFn = () =>{
-        //    console.log( this.load.current.getBoundingClientRect().top,winH)
-           console.log( this.load.current.getBoundingClientRect().top,winH)
             if(this.load.current.getBoundingClientRect().top< winH){
-                // console.log("ll")
                 this.props.loadMore();
             }
         }  
         window.onscroll = throttle(scrollFn, 1000);
     }
     componentWillUnmount(){
+        // 取消滚动事件
         window.onscroll = null;
     }
     render(){

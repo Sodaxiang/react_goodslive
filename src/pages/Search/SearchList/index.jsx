@@ -11,31 +11,42 @@ class SearchList extends Component {
         this.state = {
             searchList:[],
             hasMore: false,
+            page: 0,
         }
     }
     componentDidMount(){
         //使用localStorage的原因，避免存储再redux中city信息在页面刷新后丢失
-        this.getContent( localStorage.getItem('city'), this.props.searchContent);
+        this.getContent( localStorage.getItem('city'), this.props.searchContent, 0 );
     }
     componentWillUpdate(nextProps){
         if(nextProps.searchContent === this.props.searchContent) return;
+        this.setState({
+            searchList: [],
+            page: 0
+        });
         const city = this.props.city.cityName;
-        this.getContent(localStorage.getItem('city'), nextProps.searchContent);
+        this.getContent(localStorage.getItem('city'), nextProps.searchContent, 0);
+    }
+    componentWillUnmount(){
+        // 清除
+        this.setState = (state,callback) => {
+            return;
+        }
     }
     loadMore=()=>{
-        this.getContent( localStorage.getItem('city'), this.props.searchContent);
+        this.getContent( localStorage.getItem('city'), this.props.searchContent, this.state.page);
     }
-    getContent = (city, content) =>{
-        getSearchContent(city, content).then(
+    getContent = (city, content, page) =>{
+        getSearchContent(city, content, page).then(
             res =>{
                 this.setState({
                     searchList: this.state.searchList.concat(res.data),
-                    hasMore: res.hasMore
+                    hasMore: res.hasMore,
+                    page: this.state.page + 1
                 });
             }
         )
     }
-
     render(){
         return(
             <div className="search-list">

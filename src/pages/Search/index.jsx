@@ -11,7 +11,6 @@ class Search extends Component {
         }
     }
     componentDidMount(){
-        console.log(this.props)
     }
     handleSearch(content){
         this.setState({

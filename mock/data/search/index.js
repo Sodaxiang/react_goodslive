@@ -1,5 +1,3 @@
-const shortid = require('shortid');
-
 module.exports = {
     hasMore: true,
     data: [
