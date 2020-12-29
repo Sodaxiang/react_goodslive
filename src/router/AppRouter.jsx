@@ -8,6 +8,8 @@ import Service from '../pages/Service';
 import Profile from '../pages/Profile';
 import City from '../pages/City';
 import Search from '../pages/Search';
+import Detail from '../pages/Detail';
+
 
 import NotFound from '../pages/NotFound';
 
@@ -22,6 +24,7 @@ export default class AppRouter extends React.Component{
                   <Route  path="/profile" component={Profile}/>
                   <Route  path="/city" component={City} />
                   <Route  path="/search/:content" component={Search} />
+                  <Route  path="/detail/:id" component={Detail} />
                   <Route path="*" component={NotFound}/>
               </Switch>
             </BrowserRouter>
