@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import SearchListItem from './SearchListItem';
-import LoadMore from '../../../components/LoadMore';
+// import BackTop from '../../../components/BackTop';
+import LoadMore_BackTop from '../../../components/LoadMore';
 import {connect} from 'react-redux';
 import { getSearchContent } from '../../../network/search';
 import './style.less';
@@ -24,7 +25,6 @@ class SearchList extends Component {
             searchList: [],
             page: 0
         });
-        const city = this.props.city.cityName;
         this.getContent(localStorage.getItem('city'), nextProps.searchContent, 0);
     }
     componentWillUnmount(){
@@ -54,8 +54,9 @@ class SearchList extends Component {
                    return <SearchListItem data={ item } key={index}/>
                })}
                {
-                   this.state.hasMore ?<LoadMore loadMore={this.loadMore}/>:<p>已经被你看光了~</p>
+                   this.state.hasMore ?<LoadMore_BackTop loadMore={this.loadMore}/>:<p>已经被你看光了~</p>
                }
+               {/* <BackTop/> */}
             </div>
         )
     }

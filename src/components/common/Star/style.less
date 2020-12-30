@@ -1,0 +1,23 @@
+.star{
+    position: relative;
+    height: 16px;
+    width: 80px;
+    overflow: hidden;
+    .light, .rate {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+    }
+    .light {
+        width: 100%;
+        background: url(../../../static/images/star.svg) ;
+        // 要设置背景图片的大小，否则会显示不出来背景图
+        background-size: 16px 16px;
+    }
+    .rate {
+        width: 0;
+        background: url(../../../static/images/star_color.svg);
+        background-size: 16px 16px;
+    }
+}

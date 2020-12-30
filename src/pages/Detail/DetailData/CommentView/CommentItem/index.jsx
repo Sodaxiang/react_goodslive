@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './style.less';
+import Star from '../../../../../components/common/Star';
 
 class CommentItem extends Component {
     render(){
@@ -11,6 +12,7 @@ class CommentItem extends Component {
                     &nbsp;
                     {data.username}
                 </h3>
+                <Star rate={data.star}/>
                 <p>{data.comment}</p>
             </div>
         )
