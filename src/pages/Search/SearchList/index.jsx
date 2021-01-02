@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import SearchListItem from './SearchListItem';
 // import BackTop from '../../../components/BackTop';
-import LoadMore_BackTop from '../../../components/LoadMore';
+import LoadMoreBackTop from '../../../components/LoadMoreBackTop';
 import {connect} from 'react-redux';
 import { getSearchContent } from '../../../network/search';
 import './style.less';
@@ -54,7 +54,7 @@ class SearchList extends Component {
                    return <SearchListItem data={ item } key={index}/>
                })}
                {
-                   this.state.hasMore ?<LoadMore_BackTop loadMore={this.loadMore}/>:<p>已经被你看光了~</p>
+                   this.state.hasMore ?<LoadMoreBackTop loadMore={this.loadMore}/>:<p>已经被你看光了~</p>
                }
                {/* <BackTop/> */}
             </div>
