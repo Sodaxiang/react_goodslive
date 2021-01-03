@@ -29,7 +29,11 @@ class DetailData extends Component{
     render(){
         return(
             this.state.houseData.imgs?
-           <DetailDataView history={this.props.history} houseData={this.state.houseData} comments={this.state.comments}/>
+           <DetailDataView 
+              history={this.props.history} 
+              houseid = {this.props.id}
+              houseData={this.state.houseData} 
+              comments={this.state.comments}/>
            :
            <div>数据加载中</div>
         )

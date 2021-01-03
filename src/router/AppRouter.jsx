@@ -9,6 +9,7 @@ import Profile from '../pages/Profile';
 import City from '../pages/City';
 import Search from '../pages/Search';
 import Detail from '../pages/Detail';
+import Login from '../pages/Login';
 
 
 import NotFound from '../pages/NotFound';
@@ -25,6 +26,7 @@ export default class AppRouter extends React.Component{
                   <Route  path="/city" component={City} />
                   <CacheRoute  path="/search/:content" component={Search} />
                   <Route  path="/detail/:id" component={Detail} />
+                  <Route path="/login" component={Login} />
                   <Route path="*" component={NotFound}/>
               </CacheSwitch>
             </BrowserRouter>

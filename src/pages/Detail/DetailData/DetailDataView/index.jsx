@@ -3,7 +3,9 @@ import DetailHeader from '../../../../components/common/SimpleHeader';
 import Swiper from '../../../../components/common/Swiper';
 import Tabs from '../../../../components/common/Tabs';
 import CommentView from '../CommentView';
+import StoreBuy from '../StoreBuy';
 import './style.less';
+
 class DetailDataView extends Component{
     render(){
         let house = this.props.houseData;
@@ -43,6 +45,7 @@ class DetailDataView extends Component{
                                 <p>年代：{house.info.years}</p>
                             </div>
                         </div>
+                        <StoreBuy houseid={this.props.houseid}/>
                   </tab>
                   <tab tabname="房屋评价">
                     <CommentView comments={this.props.comments}/>
