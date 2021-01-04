@@ -10,7 +10,7 @@ import City from '../pages/City';
 import Search from '../pages/Search';
 import Detail from '../pages/Detail';
 import Login from '../pages/Login';
-
+import ShopCart from '../pages/ShopCart';
 
 import NotFound from '../pages/NotFound';
 
@@ -27,6 +27,7 @@ export default class AppRouter extends React.Component{
                   <CacheRoute  path="/search/:content" component={Search} />
                   <Route  path="/detail/:id" component={Detail} />
                   <Route path="/login" component={Login} />
+                  <Route path="/shopcart" component={ShopCart} />
                   <Route path="*" component={NotFound}/>
               </CacheSwitch>
             </BrowserRouter>

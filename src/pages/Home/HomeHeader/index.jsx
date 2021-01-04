@@ -19,7 +19,7 @@ class HomeHeader extends Component{
             this.props.history.push(`/search/${this.state.searchContent}`)
         }
     }
-
+   
     render(){
         const left = (
             <div className="home-header-left" onClick={this.hanldeCityClick}>
@@ -41,9 +41,9 @@ class HomeHeader extends Component{
             </div>
         );
         const right = (
-            <div className="home-header-right">
+            <Link className="home-header-right" to="/shopcart">
                  <i className="iconfont icon-car"></i>
-            </div>
+            </Link>
            
         )
         return(       

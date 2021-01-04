@@ -4,5 +4,6 @@ module.exports = {
     search:'/search',
     detail:'/detail',
     comment: '/comment',
-    
+    cartlist: '/cartlist',
+    addcomment:'/addcomment'
 }

@@ -6,6 +6,7 @@ const homehot = require('./data/home/hotdata');
 const searchContent = require('./data/search');
 const detailContent = require('./data/detail');
 const comment = require('./data/comment');
+const cartData= require('./data/cart');
 
 router.get(config.homehot1, (req, res)=>{
    console.log(req.query, "lll")
@@ -27,5 +28,15 @@ router.get(config.comment, (req, res) => {
     console.log(req.query);
     res.send(comment);
     
+})
+router.get(config.cartlist, (req, res) => {
+    console.log(req.query);
+    res.send(cartData);
+})
+router.post(config.addcomment, (req, res) => {
+    console.log(req.body);
+    res.send({
+        msg:'评论成功'
+    });
 })
 module.exports = router;
